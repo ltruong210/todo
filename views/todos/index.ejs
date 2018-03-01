@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+
+<div class="row">
+	<% user.todos.forEach(function(todo) { %>
+		<div class="col col-md-3 col-sm-6">
+			<div class="card  bg-light text-dark">
+				<div class="card-body">
+					<h5 class="card-title"><%= todo.title %></h5>
+					<hr>
+					<p class="card-text"><%= todo.content %></p>
+				</div>
+			</div>
+		</div>	
+		
+	<% }) %>
+</div>
+
+<% include ../partials/footer %>
