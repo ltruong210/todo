@@ -27,11 +27,11 @@ router.post("/register", function(req, res) {
     })
     User.register(newUser, req.body.password, function(err, user) {
         if(err || !user) {
-            req.flash("error", err.message);
-            return res.render("register");
+            req.flash();
+            return res.render("register", {error:  err.message});
         } 
         passport.authenticate("local")(req, res, function(){
-            req.flash("success", "Welcome to Todo" + user.username);
+            req.flash("success", "Welcome to Todo " + user.firstName);
             res.redirect("/" + user._id);
         });
     });
